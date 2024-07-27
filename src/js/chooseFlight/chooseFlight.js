@@ -1,4 +1,6 @@
-export function choiseFlight() {
+//import chooseFlight from "../../../flights.json";
+
+export function chooseFlight() {
   document
     .getElementById("flight-form")
     .addEventListener("submit", async (event) => {
@@ -9,7 +11,7 @@ export function choiseFlight() {
 
       try {
         // Загрузка данных из JSON-файла
-        const response = await fetch("../flights.json");
+        const response = await fetch("flights.json");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -48,4 +50,3 @@ export function choiseFlight() {
 }
 
 // Вызов функции choiseFlight
-choiseFlight();

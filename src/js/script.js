@@ -1,4 +1,4 @@
-import { choiseFlight } from "./choiseFlight/choiseFlight.js";
+import { chooseFlight } from "./chooseFlight/chooseFlight.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Авторизація користувача
@@ -27,5 +27,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   // Логіка вибору рейсу
-  choiseFlight();
+  chooseFlight();
 });

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій профіль</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body name="b3">
+    <header>
+        <h1>Мій профіль</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Персональні дані</h2>
+            <form id="profile-form">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" required>
+                <label for="surname">Прізвище:</label>
+                <input type="text" id="surname" required>
+                <label for="birthdate">Дата народження:</label>
+                <input type="date" id="birthdate" required>
+                <label for="gender">Стать:</label>
+                <select id="gender">
+                    <option value="male">Чоловіча</option>
+                    <option value="female">Жіноча</option>
+                </select>
+                <label for="email">Електронна пошта:</label>
+                <input type="email" id="email" required>
+                <label for="phone">Номер телефону:</label>
+                <input type="tel" id="phone" required>
+                <button type="submit">Зберегти зміни</button>
+            </form>
+        </section>
+        <section>
+            <h2>Зміна паролю</h2>
+            <form id="change-password-form">
+                <label for="current-password">Поточний пароль:</label>
+                <input type="password" id="current-password" required>
+                <label for="new-password">Новий пароль:</label>
+                <input type="password" id="new-password" required>
+                <label for="confirm-password">Повторіть новий пароль:</label>
+                <input type="password" id="confirm-password" required>
+                <button type="submit">Змінити пароль</button>
+            </form>
+        </section>
+        <section>
+            <h2>Мої платіжні картки</h2>
+            <form id="payment-cards-form">
+                <label for="card-number">Номер картки:</label>
+                <input type="text" id="card-number" required>
+                <label for="card-expiry">Термін дії:</label>
+                <input type="text" id="card-expiry" placeholder="ММ/РР" required>
+                <label for="card-cvc">CVC:</label>
+                <input type="text" id="card-cvc" required>
+                <button type="submit">Додати картку</button>
+            </form>
+        </section>
+        <section>
+            <h2>Мої замовлення</h2>
+            <div id="orders">
+                <!-- Замовлення будуть тут -->
+            </div>
+        </section>
+        <section>
+            <h2>Реквізити юридичної особи</h2>
+            <form id="company-details-form">
+                <label for="legal-address">Юридична адреса:</label>
+                <input type="text" id="legal-address" placeholder="Вулиця, Будинок, Офіс, Індекс" required>
+                <label for="organization-phone">Телефон організації:</label>
+                <input type="tel" id="organization-phone" required>
+                <label for="actual-address">Фактична адреса:</label>
+                <input type="text" id="actual-address" placeholder="Вулиця, Будинок, Офіс, Індекс" required>
+                <button type="submit">Зберегти реквізити</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Сервіс бронювання авіактивів</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
