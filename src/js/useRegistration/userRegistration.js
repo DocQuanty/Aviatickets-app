@@ -1,4 +1,4 @@
-function userRegistation(user) {
+function userRegistration(user) {
   document
     .getElementById("register-form")
     ?.addEventListener("submit", (event) => {
@@ -8,4 +8,4 @@ function userRegistation(user) {
     });
 }
 
-userRegistation("Renat");
+userRegistration("Renat");

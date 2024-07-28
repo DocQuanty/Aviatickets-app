@@ -1,77 +1,77 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сервіс бронювання авіактивів</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>My App</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body name="b1">
-    <header>
-        <h1>Сервіс бронювання авіактивів</h1>
-        <nav>
-            <a href="/">Головна</a>
-            <a href="register">Реєстрація</a>
-            <a href="login">Авторизація</a>
-            <a href="profile">Мій профіль</a>
-        </nav>
-        </div>
-    </header>
-    <main>
-        <section>
-            <h2 class="test">Виберіть рейс</h2>
-            <form id="flight-form">
-                <label for="from">Звідки:</label>
-                <select id="from">
-                    <option value="Київ">Київ</option>
-                </select>
-                <label for="to">Куди:</label>
-                <select id="to">
-                    <option value="Іспанія">Іспанія</option>
-                    <option value="Туреччина">Туреччина</option>
-                    <option value="Італія">Італія</option>
-                    <option value="Німеччина"> Німеччина</option>
-                    <option value="Греція">Греція</option>
-                    <option value="Сполучені Штати">Сполучені Штати</option>
-                    <option value="Польща">Польща</option>
-                    <option value="Франція">Франція</option>
-                    <option value="Сполучене Королівство">Сполучене Королівство</option>
-                    <option value="Об’єднані Арабські Емірати">Об’єднані Арабські Емірати</option>
-                    <option value="Грузія">Грузія</option>
-                    <option value="Португалія">Португалія</option>
-                    <option value="Єгипет">Єгипет</option>
-                    <option value="Японія">Японія</option>
-                    <option value="Таїланд">Таїланд</option>
-                    <option value="Нідерланди">Нідерланди</option>
-                    <option value="Хорватія">Хорватія</option>
-                    <option value="Південна Корея">Південна Корея</option>
-                    <option value="Індія">Індія</option>
-                    <option value="Норвегія">Норвегія</option>
-                    <option value="Канада">Канада</option>
-                    <option value="Австрія">Австрія</option>
-                    <option value="Швейцарія">Швейцарія</option>
-                    <option value="Кіпр">Кіпр</option>
-                    <option value="Болгарія">Болгарія</option>
-                    <option value="Чеська Республіка">Чеська Республіка</option>
-                </select>
-                <label for="date">Дата відправлення:</label>
-                <input type="date" id="date">
-                <button type="submit">Пошук</button>
-            </form>
-        </section>
-        <section id="flight-results">
-            <h2>Рейси</h2>
-            <div id="results">
-                <!-- Результати пошуку рейсів будуть тут -->
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Сервіс бронювання авіактивів</p>
-    </footer>
-    <script type="module" src="/js/script.js"></script>
+<body>
+    <h1>Регистрация</h1>
+    <form id="register-form">
+        <input type="text" id="register-username" placeholder="Имя пользователя">
+        <input type="password" id="register-password" placeholder="Пароль">
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <h1>Вход</h1>
+    <form id="login-form">
+        <input type="text" id="login-username" placeholder="Имя пользователя">
+        <input type="password" id="login-password" placeholder="Пароль">
+        <button type="submit">Войти</button>
+    </form>
+
+    <h1>Проверка авторизации</h1>
+    <button id="check-auth">Проверить доступ к защищённому маршруту</button>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+
+            const response = await fetch('/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const result = await response.json();
+            document.getElementById('result').innerText = JSON.stringify(result);
+        });
+
+        document.getElementById('login-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            const response = await fetch('/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const result = await response.json();
+            document.getElementById('result').innerText = JSON.stringify(result);
+
+            // Сохраняем токен в localStorage
+            if (result.token) {
+                localStorage.setItem('token', result.token);
+            }
+        });
+
+        document.getElementById('check-auth').addEventListener('click', async () => {
+            const token = localStorage.getItem('token');
+
+            const response = await fetch('/auth/protected', {
+                headers: { 'Authorization': token }
+            });
+            const result = await response.json();
+            document.getElementById('result').innerText = JSON.stringify(result);
+        });
+    </script>
 </body>
 
 </html>
