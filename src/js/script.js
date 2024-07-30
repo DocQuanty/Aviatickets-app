@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ?.addEventListener("submit", (event) => {
       event.preventDefault();
       // Логіка зміни паролю
+
       alert("Пароль успішно змінено!");
     });
 
