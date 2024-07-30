@@ -8,29 +8,18 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body name="b4">
-    <header>
-        <h1>Реєстрація</h1>
-    </header>
-    <main>
-        <form id="register-form">
-            <label for="first-name">Ім'я:</label>
-            <input type="text" id="first-name" required>
-            <label for="last-name">Прізвище:</label>
-            <input type="text" id="last-name" required>
-            <label for="email">Електронна пошта:</label>
-            <input type="email" id="email" required>
-            <label for="phone">Номер телефону:</label>
-            <input type="tel" id="phone" required>
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" required>
-            <button type="submit">Реєстрація</button>
-        </form>
-    </main>
+<body>
+    <h1>Регистрация</h1>
+    <form id="register-form">
+        <input type="text" id="register-username" placeholder="Имя пользователя">
+        <input type="password" id="register-password" placeholder="Пароль">
+        <button type="submit">Зарегистрироваться</button>
+    </form>
     <footer>
         <p>&copy; 2024 Сервіс бронювання авіактивів</p>
     </footer>
-    <script type="module" src="/js/userRegistation.js"></script>
+    <script type="module" src="../js/useRegistration/userRegistration.js">
+    </script>
 </body>
 
 </html>

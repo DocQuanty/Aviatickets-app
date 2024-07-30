@@ -9,14 +9,7 @@
 </head>
 
 <body>
-    <h1>Регистрация</h1>
-    <form id="register-form">
-        <input type="text" id="register-username" placeholder="Имя пользователя">
-        <input type="password" id="register-password" placeholder="Пароль">
-        <button type="submit">Зарегистрироваться</button>
-    </form>
-
-    <h1>Вход</h1>
+        <h1>Вход</h1>
     <form id="login-form">
         <input type="text" id="login-username" placeholder="Имя пользователя">
         <input type="password" id="login-password" placeholder="Пароль">
@@ -27,51 +20,7 @@
     <button id="check-auth">Проверить доступ к защищённому маршруту</button>
 
     <div id="result"></div>
-
-    <script>
-        document.getElementById('register-form').addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const username = document.getElementById('register-username').value;
-            const password = document.getElementById('register-password').value;
-
-            const response = await fetch('/auth/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
-            });
-            const result = await response.json();
-            document.getElementById('result').innerText = JSON.stringify(result);
-        });
-
-        document.getElementById('login-form').addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-
-            const response = await fetch('/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
-            });
-            const result = await response.json();
-            document.getElementById('result').innerText = JSON.stringify(result);
-
-            // Сохраняем токен в localStorage
-            if (result.token) {
-                localStorage.setItem('token', result.token);
-            }
-        });
-
-        document.getElementById('check-auth').addEventListener('click', async () => {
-            const token = localStorage.getItem('token');
-
-            const response = await fetch('/auth/protected', {
-                headers: { 'Authorization': token }
-            });
-            const result = await response.json();
-            document.getElementById('result').innerText = JSON.stringify(result);
-        });
-    </script>
-</body>
+    <script type="module" src="../js/authentication/authentication.js"></script>
+    </body>
 
 </html>
