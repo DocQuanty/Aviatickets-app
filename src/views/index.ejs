@@ -7,14 +7,17 @@
     <body name="b1">
 
         <%- include('templates/header/header') %>
-            <main>
-                <%- include('templates/chooseFlight/chooseFlight') %>
-            </main>
-            <%- include('templates/footer/footer') %>
 
-                <script type="module" src="../js/script.js"></script>
-                <!-- <script type="module" src="../js/chooseFlight/chooseFlight.js"></script> -->
-                <!-- <script type="module" scr="../js/pagination/pagination.js"></script> -->
+            <%- include('templates/authBox/authBox') %>
+
+                <main>
+                    <%- include('templates/chooseFlight/chooseFlight') %>
+                </main>
+                <%- include('templates/footer/footer') %>
+
+                    <script type="module" src="../js/script.js"></script>
+                    <!-- <script type="module" src="../js/chooseFlight/chooseFlight.js"></script> -->
+                    <!-- <script type="module" scr="../js/pagination/pagination.js"></script> -->
     </body>
 
 </html>

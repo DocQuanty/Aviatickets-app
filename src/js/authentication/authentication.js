@@ -12,11 +12,13 @@ export function authentication() {
         body: JSON.stringify({ username, password }),
       });
       const result = await response.json();
+      console.log(result);
       document.getElementById("result").innerText = JSON.stringify(result);
 
       // Сохраняем токен в localStorage
       if (result.token) {
         localStorage.setItem("token", result.token);
+        localStorage.setItem("username", username);
         window.location.href = "/";
       }
     });
@@ -31,5 +33,4 @@ export function authentication() {
     document.getElementById("result").innerText = JSON.stringify(result);
   });
 }
-
 authentication();

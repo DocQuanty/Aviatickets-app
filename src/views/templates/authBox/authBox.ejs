@@ -1,0 +1,18 @@
+<div class="AuthBox">
+    <div id="AuthBox_name"></div>
+
+
+    <script>
+        const username = localStorage.getItem("username")
+        let authBox = document.getElementById("AuthBox_name")
+
+        console.log(username)
+
+        if (username && username != '' || username != null) {
+            authBox.innerHTML = `User: ${localStorage.getItem("username")}`
+        } else {
+            // authBox.innerHTML = "<div>awdawd<input type='text'></div>"
+            authBox.innerHTML = "User:none"
+        }
+    </script>
+</div>
