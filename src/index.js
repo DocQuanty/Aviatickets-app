@@ -17,28 +17,47 @@ app.use(
   })
 );
 
-// Настройка body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Указание на использование статических файлов
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 app.use(express.static(path.join(__dirname)));
 
-// Настройка маршрутов авторизации
-app.use("/auth", authRoutes);
+app.set("view engine", "ejs");
 
+app.use("/auth", authRoutes);
 // Обработчик для корневого маршрута
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
+  res.render(path.join(__dirname, "views", "index.ejs"));
 });
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "login.html"));
+  res.render(path.join(__dirname, "views", "login.ejs"));
 });
 app.get("/profile", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "profile.html"));
+  res.render(path.join(__dirname, "views", "profile.ejs"));
 });
 app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "register.html"));
+  res.render(path.join(__dirname, "views", "register.ejs"));
+});
+
+// Маршрут для регистрации пользователя
+app.post("/auth/register", (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res
+      .status(400)
+      .json({ message: "Username and password are required." });
+  }
+
+  // Логика регистрации пользователя
+  // Например, сохранение пользователя в базу данных
+  console.log(`Registering user: ${username}`);
+
+  // Возвращаем успешный ответ
+  res.status(201).json({ message: "User registered successfully!" });
 });
 
 app.listen(PORT, () => {

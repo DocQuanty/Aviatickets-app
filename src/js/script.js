@@ -30,5 +30,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Логіка вибору рейсу
   chooseFlight();
-  authentication();
+  // authentication();
 });

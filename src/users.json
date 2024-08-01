@@ -14,5 +14,21 @@
   {
     "username": "tor",
     "password": "$2a$10$f2xCuxGzi9KtF1XPZGEHG.NMxoDgGBg5qJSeXOoIS3NBho09wEGBG"
+  },
+  {
+    "username": "aaa",
+    "password": "$2a$10$LWJPXcUlPq5Vo1gKfqdJL.DwavYVjaaM0Yal2m00BO4HbBGvwKb2y"
+  },
+  {
+    "username": "aaab",
+    "password": "$2a$10$nFRggypcaKniVzP03GmtveGosPph.cIM2wAs5Y5ZSeEfMWbOW6q6W"
+  },
+  {
+    "username": "aaabc",
+    "password": "$2a$10$ZxRrdxNOp5pwVsSfvJQXpO5XcFtRKGOfFCqn8q/OJu0bJw.yu/crC"
+  },
+  {
+    "username": "",
+    "password": "$2a$10$EpTVQoBKHYgXZp63O3r32eFQ2lEMqyUqUCLmUadzy7AFBtWJRGi4y"
   }
 ]
