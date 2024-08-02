@@ -8,16 +8,18 @@
 
         <%- include('templates/header/header') %>
 
-            <%- include('templates/authBox/authBox') %>
+            <div class="authBox">
+                <%- include('templates/authBox/authBox') %>
+            </div>
 
-                <main>
-                    <%- include('templates/chooseFlight/chooseFlight') %>
-                </main>
-                <%- include('templates/footer/footer') %>
+            <main>
+                <%- include('templates/chooseFlight/chooseFlight') %>
+            </main>
+            <%- include('templates/footer/footer') %>
 
-                    <script type="module" src="../js/script.js"></script>
-                    <!-- <script type="module" src="../js/chooseFlight/chooseFlight.js"></script> -->
-                    <!-- <script type="module" scr="../js/pagination/pagination.js"></script> -->
+                <script type="module" src="../js/script.js"></script>
+                <!-- <script type="module" src="../js/chooseFlight/chooseFlight.js"></script> -->
+                <!-- <script type="module" scr="../js/pagination/pagination.js"></script> -->
     </body>
 
 </html>

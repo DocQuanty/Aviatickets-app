@@ -1,11 +1,36 @@
 <div class="AuthBox">
-    <div id="AuthBox_name"></div>
+    <div class="authBox__name"></div>
+    <button class="authBox__exit">Exit</button>
 
+    <style>
+        .AuthBox {
+            position: absolute;
+            right: 5%;
+            top: 10%;
+        }
+
+        .authBox__name {
+            max-width: 100px;
+        }
+
+        .authBox__exit {
+            max-width: 100em;
+        }
+    </style>
 
     <script>
         const username = localStorage.getItem("username")
-        let authBox = document.getElementById("AuthBox_name")
+        const token = localStorage.getItem("token")
 
+        let authBox = document.querySelector(".authBox__name")
+        let exit = document.querySelector(".authBox__exit")
+
+        exit.addEventListener("click", (e) => {
+            const username = localStorage.removeItem("username")
+            const token = localStorage.removeItem("token")
+            window.location.reload()
+
+        })
         console.log(username)
 
         if (username && username != '' || username != null) {
